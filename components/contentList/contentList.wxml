@@ -1,0 +1,53 @@
+<view>
+    <view class="pageType">
+        <button  class="pageButton {{type=='视频'?'chosedButton':''}}" bindtap="change" data-value="视频">短视频</button>
+        <button  class="pageButton {{type=='文章'?'chosedButton':''}}" bindtap="change" data-value="文章">新鲜事</button>
+    </view>
+    <swiper style="height:{{phoneHeight+'px'}}" bindchange="changeType" current="{{index}}">
+        <swiper-item  >
+    <scroll-view scroll-y="true" enable-back-to-top="true" style="height:{{phoneHeight+'px'}}"
+                 bindscrolltoupper="refresh">
+        <view class="pageMain" >
+        <view wx:for="{{videoList}}" wx:key="{{item.id}}" class="videoItem">
+            <view style="height:400rpx">
+                <image src="{{item.imgSrc}}" data-src="{{item.imgSrc}}" data-id="{{item.id}}" class="videoImg" lazy-load="true" bindtap="turnToVideoPage"></image>
+            </view>
+            <view class="videoInfo">
+            <view>
+                <image bindtap="turnToPageUser" data-id="{{item.userInfo.openId}}" src="{{item.userInfo.imgUrl}}" class="videoInfoImg" lazy-load="true"></image>
+            </view>
+                <view>
+                    <text class="videoInfoName" bindtap="turnToPageUser" data-id="{{item.userInfo.openId}}">{{item.userInfo.nickName}}</text>
+
+                </view>
+                <view>
+                <icon class="fa fa-eye videoIcon"></icon>
+            <text class="videoHasSeen">{{item.hasSeen}}</text>
+                    </view>
+            </view>
+
+        </view>
+        </view>
+
+    </scroll-view></swiper-item>
+        <swiper-item><scroll-view class="pageMain" scroll-y="true" enable-back-to-top="true" style="height:{{phoneHeight+'px'}}"
+                                                                      bindscrolltoupper="refresh"  >
+        <view class="pageMain2">
+            <view wx:for="{{textList}}" wx:key="{{item.id}}" class="mainText" >
+                <view class="textUserImg"><image src="{{item.userInfo.imgUrl}}" class="videoInfoImg" bindtap="turnToPageUser" data-id="{{item.userInfo.openId}}"></image></view>
+                <view class="textContent">
+                    <view><text class="textContentUserName" bindtap="turnToPageUser" data-id="{{item.userInfo.openId}}">{{item.userInfo.nickName}}</text></view>
+                    <view data-id="{{item.id}}" bindtap="turnToThingPage"><text data-id="{{item.id}}">{{item.content}}</text></view>
+                    <view class="textContentImg" data-id="{{item.id}}" bindtap="turnToThingPage"><view wx:for="{{item.textImgSrc}}" data-id="{{item.id}}" wx:for-item="item2" wx:key="*this" class="textContentImgView">
+                        <image src="{{item2}}"  data-id="{{item.id}}" class="textContentImg2"></image>
+                    </view></view>
+                    <view class="textTime"><text >{{item.createdOn}}</text></view>
+                </view>
+
+            </view>
+
+
+        </view>
+    </scroll-view></swiper-item>
+    </swiper>
+</view>

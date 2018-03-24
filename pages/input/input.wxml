@@ -1,0 +1,19 @@
+<view class="pageHeader">
+    <text>发布新鲜事~</text>
+    <button class="pageHeaderButton" bindtap="addNewContent" >Biu~</button>
+</view>
+<view class="pageMain">
+<view class="pageInput">
+    <textarea value="{{content}}" focus="{{focus}}" maxlength="100" bindinput="inputSomething" bindconfirm="finishInput"></textarea>
+    <view class="inputCount"><text style="color:{{count>100?'red':'#ccc'}}">{{count}}/100</text></view>
+</view>
+<view class="pageAddImage" >
+    <view wx:for="{{imgArr}}" wx:if="{{!isVedio}}" wx:key="*this"><image class="pageImg" src="{{item}}" bindtap="lookImg"/></view>
+    <button class="addImageButton" hidden="{{imgArr.length>=9||hasVideo}}" bindtap="getNewImg">+</button>
+    <view hidden="{{videoPath===''}}" class="videoView">
+        <video wx:if="{{isVedio}}"  class='addImageButton2' src="{{videoPath}}" ></video>
+        <icon type="cancel" color="red" size="23" class="cancelVideo" bindtap="cancelVideo"></icon>
+    </view>
+</view>
+
+</view>

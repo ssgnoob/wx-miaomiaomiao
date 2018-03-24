@@ -1,0 +1,35 @@
+.pageHeader{
+  line-height:80rpx;
+  background-color: #3ebc11;
+  font-size: 32rpx;
+  text-align:center;
+  color:white;
+  position:relative
+}
+  .pageHeaderButton{
+    height :80rpx;
+    position:absolute;
+    top:0;
+    right:0
+  }
+.pageHeaderButton image{
+  width:80rpx;
+  height :80rpx;
+  float:right;
+}
+  .pageHeaderInput{
+    height:100%;
+    width :100%;
+    position:absolute;
+    top:0;
+    z-index :5;
+  }
+.pageHeaderInput input{
+  font-size:28rpx;
+  padding-left:1em;
+  text-align:left;
+  background-color:#fff;
+  color:black;
+  width :100%;
+  height :100%;
+}

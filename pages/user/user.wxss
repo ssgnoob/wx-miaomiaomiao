@@ -1,0 +1,41 @@
+page{
+  background-color:#eee
+}
+.pageHeader{
+  line-height:80rpx;
+  background-color: #3ebc11;
+  font-size: 32rpx;
+  text-align:center;
+  color:white;
+}
+  .userInfo{
+    padding: 20rpx;
+    margin-top:40rpx;
+    display:flex;
+    flex-direction:row;
+    background-color :white
+  }
+.userInfoEl{
+  height :200rpx;
+}
+  .userInfoEL2{
+    margin-left:40rpx;
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .userImg{
+    width:200rpx;
+    height :200rpx;
+  }
+    .userGender{
+      width :48rpx;
+      height :48rpx;
+    }
+      .userInfoName{
+        display: flex;
+        flex-direction: row;
+        font-size:40rpx;
+        font-weight:bold;
+        font-family:微软雅黑;
+      }

@@ -1,0 +1,25 @@
+<scroll-view style="height: {{phoneHeight}}" id="commentList" scroll-y="true">
+    <view>
+        <view wx:for="{{commentList}}" wx:if="{{item.toCommentId==0}}" wx:key="{{item.commentId}}" class="mainText">
+            <view class="commentMain">
+            <view class="textUserImg"><image src="{{item.imgUrl}}" bindtap="turnToPageUser" data-id="{{item.openId}}" class="videoInfoImg"></image></view>
+            <view class="textContent">
+                <view><text class="textContentUserName" bindtap="turnToPageUser" data-id="{{item.openId}}">{{item.nickName}}</text></view>
+                <view><text>{{item.content}}</text></view>
+                <view class="textTime"><icon data-toId="{{item.userId}}" data-thingsid="{{item.thingsId}}"  data-userId="{{userId}}" data-tocid="{{item.commentId}}"
+                                             data-name="{{item.nickName}}" class="fa fa-commenting commentIcon" bindtap="CommentSomeone"></icon> <text>{{item.created}}</text></view>
+            </view>
+            </view>
+                <view class="secondComment">
+                    <view wx:for="{{item.childComment}}" wx:for-item="item2" wx:key="{{item2.commentId}}">
+                        <view class="commentName" data-toId="{{item.userId}}" data-thingsid="{{item.thingsId}}"  data-userId="{{userId}}" data-tocid="{{item.commentId}}
+                              data-name="{{item.nickName}}" bindtap="CommentSomeone"><text class="commentName" data-toId="{{item.userId}}" data-thingsid="{{item.thingsId}}"  data-userId="{{userId}}" data-tocid="{{item.commentId}}
+                                                                                                     data-name="{{item.nickName}}"><text catchtap="turnToPageUser" data-id="{{item.openId}}">{{item2.nickName}}</text>对 <text catchtap="turnToPageUser" data-id="{{item.openId}}">{{item2.nickName}}</text>说:{{item2.content}}</text></view>
+
+                    </view>
+                </view>
+        </view>
+    </view>
+    <view hidden="{{!toComment}}" class="commentSome"><input placeholder="向{{commentObj.commentName}}评论:" data-toId="{{commentObj.toWhom}}" data-thingsid="{{commentObj.commentThingsId}}"  data-userId="{{commentObj.commentUserId}}"
+                                                             data-tocid="{{commentObj.toCommentId}}"     bindconfirm="sendComment"  value="{{commentObj.content}}"   class="inputComment" type="text"/><text class="cancelComment" bindtap="cancelComment">cancel</text></view>
+</scroll-view>

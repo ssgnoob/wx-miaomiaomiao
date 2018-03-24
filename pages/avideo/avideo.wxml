@@ -1,0 +1,32 @@
+<view class="pageHeader">
+    <text>短视频</text>
+</view>
+<view>
+    <view>
+        <video id='myVideo' class="videoItem" src="{{videoInfo.src}}" poster="{{imgSrc}}" danmu-list="{{danmuList}}"
+               bindtimeupdate='changeCurrentTime' danmu-btn='true' enable-danmu="true"></video>
+    </view>
+    <view>
+        <view class="mainText">
+            <view class="textUserImg"><image src="{{videoAuthor.imgUrl}}" class="videoInfoImg"></image></view>
+            <view class="textContent">
+                <view><text class="textContentUserName">{{videoAuthor.nickName}}</text></view>
+                <view><text>{{videoInfo.content}}</text></view>
+                <view class="videoCreatedOn"><text>{{videoInfo.createdOn}}</text></view>
+            </view>
+
+        </view>
+    </view>
+    <!--<scroll-view style="height:{{phoneHeight+'px'}}"></scroll-view>-->
+    <comment-list id="commentList" phoneHeight="{{phoneHeight+'px'}}" thingsId="{{commentListId}}"></comment-list>
+    <view class="inputSomething" >
+        <text class="inputButton" bindtap="hideInput">{{showORhide}}</text>
+        <picker hidden="{{!showInput}}" style="height: 100rpx;" bindchange="bindPickerChange"  range="{{['评论','弹幕']}}">
+        <button hidden="{{!showInput}}" class="picker">
+           {{inputType}}
+        </button>
+    </picker>
+        <input class="inputSomething2" hidden="{{!showInput}}" value="{{inputContent}}" bindconfirm="sendSomething" maxlength="{{inputLength}}" type="text" placeholder="说点什么吧..."/>
+
+    </view>
+</view>

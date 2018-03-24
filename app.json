@@ -1,0 +1,46 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/discover/discover",
+    "pages/chat/chat",
+    "pages/me/me",
+    "pages/input/input",
+    "pages/avideo/avideo",
+    "pages/athing/athing",
+    "pages/user/user"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor":"#000",
+    "navigationBarTitleText": "喵喵喵屋~",
+    "navigationBarTextStyle":"wihte",
+    "enablePullDownRefresh":true
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath":"image/cat.png",
+      "selectedIconPath":"image/catSelected.png",
+      "text": "广场"
+    },
+
+      {
+      "pagePath": "pages/chat/chat",
+      "iconPath":"image/message.png",
+      "selectedIconPath":"image/messageSelected.png",
+      "text": "消息"
+    }, {
+      "pagePath": "pages/me/me",
+      "iconPath":"image/me.png",
+      "selectedIconPath":"image/meSelected.png",
+      "text": "我"
+    }]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+}
+
+
+

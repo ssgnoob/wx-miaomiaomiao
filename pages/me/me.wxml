@@ -1,0 +1,16 @@
+<view class="pageHeader">
+    <text>我</text>
+</view>
+<view class="userInfo">
+    <view class="userInfoEl"><image class="userImg" src="{{info.avatarUrl}}"></image></view>
+    <view class="userInfoEl userInfoEL2">
+        <view class="userInfoName">
+            <text>{{info.nickName}}</text>
+            <image class="userGender" src="{{info.gender===1?'../../image/men.png':'../../image/women.png'}}"></image>
+        </view>
+        <view style="font-family:Times New Roman"><text>{{info.city}}</text></view>
+    </view>
+</view>
+<view>
+<content-list userId="{{userId}}" phoneHeight="{{phoneHeight}}"></content-list>
+</view>

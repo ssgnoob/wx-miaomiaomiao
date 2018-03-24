@@ -1,0 +1,14 @@
+<view class="pageHeader">
+    <text>广场</text>
+    <view class="pageHeaderButton">
+        <image bindtap="search" src="../../image/search.png "/>
+        <image bindtap='addSomething' src="../../image/add.png" />
+    </view>
+    <view class="pageHeaderInput" hidden="{{!toSearch}}">
+        <input type="text" id="searchInput" focus="{{inputFocus}}" confirm-type="search" placeholder="发现你的心水..." maxlength="20" value='{{inputText}}'
+               bindblur="cancelSearch" bindconfirm="searchContent"/>
+    </view>
+</view>
+<view>
+    <content-list userId="0" phoneHeight="{{phoneHeight}}"></content-list>
+</view>

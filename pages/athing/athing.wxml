@@ -1,0 +1,22 @@
+<view class="pageHeader">
+    <text>新鲜事</text>
+</view>
+    <view class="mainText">
+        <view class="textUserImg"><image src="{{thingInfo.imgUrl}}" class="videoInfoImg"></image></view>
+        <view class="textContent">
+            <view><text class="textContentUserName">{{thingInfo.nickName}}</text></view>
+            <view ><text>{{thingInfo.content}}</text></view>
+            <view class="textContentImg"><view wx:for="{{thingInfo.imgSrc}}" wx:for-item="item2" wx:key="*this" class="textContentImgView">
+                <image src="{{item2}}" class="textContentImg2"></image>
+            </view></view>
+            <view class="textTime"><icon data-toId="{{thingInfo.userId}}" data-thingsid="{{thingInfo.id}}"  data-userId="{{userId}}" data-tocid="0"
+                                         data-name="{{thingInfo.nickName}}" class="fa fa-commenting commentIcon" bindtap="CommentSomeone"></icon><text >{{thingInfo.createdOn}}</text></view>
+    </view>
+    <!--<scroll-view style="height:{{phoneHeight+'px'}}"></scroll-view>-->
+
+
+    </view>
+<view hidden="{{!toComment}}" class="commentSome"><input placeholder="向{{commentObj.commentName}}评论:" data-toId="{{commentObj.toWhom}}" data-thingsid="{{commentObj.commentThingsId}}"  data-userId="{{commentObj.commentUserId}}"
+                                                         data-tocid="{{commentObj.toCommentId}}"     bindconfirm="sendComment"  value="{{commentObj.content}}"   class="inputComment" type="text"/><text class="cancelComment" bindtap="cancelComment">cancel</text></view>
+
+        <comment-list id="commentList"  thingsId="{{thingInfo.id}}"></comment-list>
